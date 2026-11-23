@@ -1,0 +1,8 @@
+# Personal notes that stay on this machine.
+/private/
+
+# Toolchain installed by tools/setup-toolchain.sh.
+/.toolchain/
+
+# Build trees.
+/build*/

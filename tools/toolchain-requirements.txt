@@ -1,0 +1,20 @@
+# CUDA toolchain from NVIDIA's pip wheels. Verified together on an RTX 5070
+# with driver 595.84, which reports "CUDA Version: 13.2" in nvidia-smi.
+#
+# The compiler series (nvcc, nvvm, crt) must not be newer than that version:
+# nvcc 13.5 compiles fine here, but every kernel launch then fails with
+# "the provided PTX was compiled with an unsupported toolchain".
+nvidia-cuda-nvcc==13.2.86
+nvidia-nvvm==13.2.86
+nvidia-cuda-crt==13.2.86
+nvidia-cuda-runtime==13.2.86
+# Thrust and CUB headers. CMake expects their include/cccl directory to exist.
+nvidia-cuda-cccl==13.2.86
+
+# Libraries used for comparison and by the DCT project.
+nvidia-cufft==12.0.0.61
+nvidia-cublas==13.1.1.3
+
+# Build tools, so that nothing has to be installed system-wide.
+cmake>=3.28
+ninja
